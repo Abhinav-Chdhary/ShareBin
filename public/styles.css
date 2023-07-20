@@ -30,3 +30,42 @@ textarea {
     border: none;
     outline: none;
 }
+.buttons-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.3;
+    transition: opacity 200ns ease-in-out;
+    background-color: #0081a2;
+    padding: 1rem;
+}
+.buttons-wrapper:hover {
+    opacity: 1;
+}
+.logo {
+    font-size: 2rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    width: 100%;
+    display: inline-block;
+}
+.buttons-wrapper .buttons {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+.buttons-wrapper .buttons > * + * {
+    margin-left: 0.25rem;
+}
+.btn {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    border: 2px solid #002b36;
+    color: #002b36;
+    cursor: pointer;
+    transition: background-color 200ns ease-in-out;
+}
+.btn:hover{
+    background-color: #83e5ff;
+}
