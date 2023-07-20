@@ -62,6 +62,7 @@ textarea {
     border-radius: 0.25rem;
     padding: 0.5rem;
     border: 2px solid #002b36;
+    text-decoration: none;
     color: #002b36;
     cursor: pointer;
     transition: background-color 200ns ease-in-out;
