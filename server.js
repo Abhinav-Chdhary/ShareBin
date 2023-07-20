@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 Use the commands at the top right corner to
 create a new file share with others.`;
-    res.render("code-display", { code });
+    res.render("code-display", { code, language: "plaintext" });
 });
 
 //new page
@@ -29,25 +29,34 @@ app.get("/new", (req, res) => {
 //save a text
 app.post("/save", async (req, res) => {
     const value = req.body.value;
-    try{
-        const document = await Document.create({value})
-        res.redirect(`/${document.id}`)
-    }catch(e){
+    try {
+        const document = await Document.create({ value });
+        res.redirect(`/${document.id}`);
+    } catch (e) {
         res.render("new", { value });
     }
     console.log(value);
 });
 
-//
-app.get("/:id", async (req, res)=>{
+//for duplicate
+app.get("/:id/duplicate", async (req, res)=>{
     const id = req.params.id;
-    try{
+    try {
         const document = await Document.findById(id);
-        res.render("code-display", {code: document.value});
+        res.render("new", { value: document.value});
+    } catch (e) {
+        res.redirect("/${id}");
     }
-    catch(e){
+});
+//
+app.get("/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const document = await Document.findById(id);
+        res.render("code-display", { code: document.value, id });
+    } catch (e) {
         res.redirect("/");
     }
-})
+});
 
 app.listen(3000);
