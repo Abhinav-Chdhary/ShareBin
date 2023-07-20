@@ -19,3 +19,14 @@ pre {
     font-family: monospace;
     text-align: end;
 }
+textarea {
+    width: 100%;
+    background-color: transparent;
+    resize: none;
+    padding: 0;
+    margin-left: 1rem;
+    color: #93a1a1;
+    min-height: calc(100vh - 2rem);
+    border: none;
+    outline: none;
+}

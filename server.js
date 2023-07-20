@@ -6,6 +6,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+//home page
 app.get("/", (req, res) => {
     const code = `Welcome to ShareBin!
 
@@ -13,5 +14,11 @@ Use the commands at the top right corner to
 create a new file share with others.`;
     res.render("code-display", { code });
 });
+
+//new page
+app.get("/new", (req, res)=>{
+    res.render("new.ejs");
+});
+
 
 app.listen(3000);
